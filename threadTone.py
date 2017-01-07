@@ -1,18 +1,29 @@
 import sys
 import cv2
 import numpy as np
+import argparse
+
+
+parser = argparse.ArgumentParser()
+parser.add_argument('image', type=argparse.FileType("r"))
+parser.add_argument('--nLines', type=int, default=3000)
+parser.add_argument('--nPins', type=int, default=250)
+
+parser.add_argument('--lineWidth', type=int, default=3)
+parser.add_argument('--lineWeight', type=int, default=2)
+args = parser.parse_args()
 
 # Parameters
 imgPath = sys.argv[1]
 imgRadius = 500     # Number of pixels that the image radius is resized to
 
-initPin = 0         # Initial pin to start threading from
-nPins = 250         # Number of pins on the circular loom
-nLines = 3000        # Maximal number of lines
+initPin = 0          # Initial pin to start threading from
+nPins = args.nPins   # Number of pins on the circular loom
+nLines = args.nLines # Maximal number of lines
 
-minLoop = 3         # Disallow loops of less than minLoop lines
-lineWidth = 3       # The number of pixels that represents the width of a thread
-lineWeight = 10     # The weight a single thread has in terms of "darkness"
+minLoop = 3                  # Disallow loops of less than minLoop lines
+lineWidth = args.lineWidth   # The number of pixels that represents the width of a thread
+lineWeight = args.lineWeight # The weight a single thread has in terms of "darkness"
 
 banner = """
    __  __                        ________
