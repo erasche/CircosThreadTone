@@ -7,12 +7,12 @@ imgPath = sys.argv[1]
 imgRadius = 500     # Number of pixels that the image radius is resized to
 
 initPin = 0         # Initial pin to start threading from
-nPins = 500         # Number of pins on the circular loom
-nLines = 1000        # Maximal number of lines
+nPins = 250         # Number of pins on the circular loom
+nLines = 2000        # Maximal number of lines
 
 minLoop = 3         # Disallow loops of less than minLoop lines
 lineWidth = 3       # The number of pixels that represents the width of a thread
-lineWeight = 15     # The weight a single thread has in terms of "darkness"
+lineWeight = 10     # The weight a single thread has in terms of "darkness"
 
 banner = """
    __  __                        ________
@@ -172,6 +172,6 @@ if __name__=="__main__":
     cv2.imwrite('./threaded.png', imgResult)
 
     print "[+] Circos Conf Written"
-    with open('circos.txt', 'w') as handle:
+    with open('circos/data/links.txt', 'w') as handle:
         for (a, b) in lines:
-            handle.write('%s\t%s\n' % (a, b))
+            handle.write('hs1 {0} {0} hs1 {1} {1}\n'.format(a * 10, b * 10))

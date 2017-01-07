@@ -1,16 +1,21 @@
-# ThreadTone | a halftone representation of an image made of thread
+# ThreadTone | a halftone representation of an image made of thread (In Circos!)
 
-The process of generating an image with thread is an idea of [Petros Vrellis](http://artof01.com/vrellis/index.html). As I've documented [here](http://www.thevelop.nl/blog/2016-12-25/ThreadTone/) the process is comprised of three steps:
-  
-  * Image pre-processing (cropping, resizing, etc.)
-  * Algorithm to place threads
-  * In my case parsing the result to G-Code for automated fabrication
+The image generation process is forked from [https://github.com/theveloped/ThreadTone](https://github.com/theveloped/ThreadTone)
 
-A set of two example images can be found below. Please refer to my [blog](http://www.thevelop.nl/blog/2016-12-25/ThreadTone/) for more details.
+A tiny addition was made in order to output Circos compatible links, and then a circos configuration developed.
 
-![Threaded portrait of Poetin](/assets/poetinThreaded.png "Threaded portrait of Poetin")
+![Threaded portrait of Root from Person of Interest](/assets/circos.png  "Threaded portrait of Root")
 
-![Threaded portrait of Angelina](/assets/angelineThreaded.png "Threaded portrait of Angelina")
+## Circos
+
+```console
+docker run -it \
+	-v `pwd`/circos/link.conf:/opt/circos-0.69-2/etc/tracks/link.conf \
+	-v `pwd`/circos:/input \
+	erasche/circos
+```
+
+The output is placed in circos/circos.png
 
 ## License
 
