@@ -8,7 +8,7 @@ imgRadius = 500     # Number of pixels that the image radius is resized to
 
 initPin = 0         # Initial pin to start threading from
 nPins = 250         # Number of pins on the circular loom
-nLines = 2000        # Maximal number of lines
+nLines = 3000        # Maximal number of lines
 
 minLoop = 3         # Disallow loops of less than minLoop lines
 lineWidth = 3       # The number of pixels that represents the width of a thread
