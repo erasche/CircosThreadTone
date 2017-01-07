@@ -4,7 +4,8 @@ The image generation process is forked from [https://github.com/theveloped/Threa
 
 A tiny addition was made in order to output Circos compatible links, and then a circos configuration developed.
 
-![Threaded portrait of Root from Person of Interest](/assets/circos.png  "Threaded portrait of Root")
+![Threaded portrait of Root from Person of Interest](/assets/root.png "Threaded portrait of Root")
+![Threaded portrait of the author](/assets/author.png "Threaded portrait of the author")
 
 ## Circos
 
