@@ -1,0 +1,15 @@
+rm -f *.f
+cat data/human.txt | grep band | grep -v gneg | grep gpos25 > 70
+cat data/human.txt | grep band | grep -v gneg | grep gpos50 > 80
+cat data/human.txt | grep band | grep -v gneg | grep -v gpos >> 80
+cat data/human.txt | grep band | grep -v gneg | grep gpos75 > 90
+cat data/human.txt | grep band | grep -v gneg | grep gpos100 > 99
+
+for i in {70,80,90,99}; do
+	cat $i | awk '{print $1" "$2" "$3" "$4" "$5" "$6" hsv("($5/2500 * 360)",1,."'$i'")"}' > $i.f;
+done;
+
+cat tmp *.f | grep chr > data/rainbow.txt
+cat tmp *.f | grep -v chr | sort >> data/rainbow.txt
+rm -f *.f
+~/arbeit/circos/circos-0.69-6/bin/circos -conf circos.conf
